@@ -12,7 +12,7 @@
 #include <pthread.h>
 
 #define MAXLINE  511
-#define MAX_SOCK 1024 // 솔라리스의 경우 64
+#define MAX_SOCK 1024 // 솔라리스의 경우 64 
 
 char *EXIT_STRING = "exit";	// 클라이언트의 종료요청 문자열
 char *START_STRING = "Connected to chat_server \n";
