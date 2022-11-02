@@ -16,6 +16,11 @@
 스프링 부트 서블릿 환경 구성
 서블릿 등록을 위해 main -> @ServletComponentScan 
 
+서블릿이란 자바를 사용하여 웹페이지를 동적을 생성하는 서버측 프로그램 
+
+web 서블릿을 통해 클라이언트와 통신, 요청, 응답등을 서블릿이 담당하도록하고 비지니스 로직은 개발자가 구현하도록 한다. 서블릿을 통해 비지니스 로직에만 집중!
+
+
 서블릿 등록 
 @WebServlet(name, urlPatterns)
 urlPatterns에 실행될 url 인자로 입력
@@ -81,6 +86,35 @@ writer.println("<body>"); .... 와 같이 문자열을 html형식에 맞게 입�
 response.setContentType("application/json") 설정
 body 내용을 클래스로 설정하고(json) objectMapper.writeValueAsString(클래스 객체)을 이용해
 문자열(json 형태)을 write.println(문자열)로 client한테 json/string 형태 송신
+
+
+
+### MVC 패턴
+
+먼저 JSP와 서블릿을 이용하여 MVC 패턴구현
+JSP : 확장자가 jsp 로 html코드안에 java 블록을 삽입하는 형태
+Servlet : 확장자가 java로 순수 자바 프로그램 / 추가로 PrintWriter 로 html코드 작성가능
+
+M : model, V : view, C : controller
+뷰와 컨트롤러를 나누어 확장성, 기능 특화에 도움
+
+
+서블릿 라이프 사이클 => init , service <-> doGet(doPost), destroy
+
+서블릿 service 메소드에서 request와 response 를 처리
+controller 에서 requestDispatcher를 통해 다른 경로(뷰 또는 처리로직)로 이동 
+
+service에서 GET request 에 대한 처리
+만약 username 과 age가 온다면 request.getParameter 로 인자를 처리후
+request.setAttribute로 데이터를 자바 객체로 매핑후 저장 // model 의 역할
+
+
+
+
+
+
+
+
 
 
 
